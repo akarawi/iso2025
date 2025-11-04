@@ -17,6 +17,7 @@
                 <h1 class="logo">ITService</h1>
             </div>
             <nav>
+                <div class="menu-toggle">☰</div>
                 <ul>
                     <li><a href="#home">หน้าแรก</a></li>
                     <li><a href="#services">บริการ</a></li>
@@ -97,7 +98,7 @@
             เพื่อช่วยให้ธุรกิจของลูกค้าทำงานได้อย่างมีประสิทธิภาพสูงสุด</p>
     </section>
 
-        <!-- Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="contact-container">
             <h2>ติดต่อเรา</h2>
@@ -140,5 +141,13 @@
         <p>© 2025 ITService | All Rights Reserved</p>
     </footer>
 </body>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('nav ul');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+</script>
 
 </html>
