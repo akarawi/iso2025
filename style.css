@@ -9,6 +9,7 @@
 /* สีหลัก */
 :root {
     --primary: #1e88e5;
+    --secondary: #1565c0;
     --dark: #0d1b2a;
     --gray: #e0e0e0;
     --text-light: #f5f5f5;
@@ -34,16 +35,14 @@ header {
     align-items: center;
 }
 
-.box{
+.box {
     display: flex;
-    width: auto;
     align-items: center;
 }
 
-
-.container img{
+.container img {
     width: 50px;
-    border-radius: 50px;
+    border-radius: 50%;
     margin-right: 10px;
 }
 
@@ -53,6 +52,7 @@ header {
     color: var(--primary);
 }
 
+/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
@@ -70,10 +70,18 @@ nav a:hover {
     color: var(--primary);
 }
 
+/* ปุ่มเมนู (มือถือ) */
+.menu-toggle {
+    display: none;
+    font-size: 1.8em;
+    color: white;
+    cursor: pointer;
+}
+
 /* Hero Section */
 .hero {
     background: linear-gradient(rgba(13, 27, 42, 0.8), rgba(13, 27, 42, 0.8)),
-        url('background.jpg') center/cover;
+        url('background.jpg') center/cover no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -105,7 +113,7 @@ nav a:hover {
 }
 
 .btn:hover {
-    background: #1565c0;
+    background: var(--secondary);
 }
 
 /* Services */
@@ -157,6 +165,63 @@ nav a:hover {
     font-size: 0.95em;
 }
 
+/* Products Section */
+.products {
+    background: #ffffff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.products h2 {
+    color: var(--dark);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.products .subtitle {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product-card {
+    background: #f8f9fa;
+    width: 260px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    color: #444;
+}
+
 /* About */
 .about {
     background: var(--dark);
@@ -188,7 +253,7 @@ nav a:hover {
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
-    text-align: left; /* ✅ ชิดซ้าย */
+    text-align: left;
 }
 
 .contact h2 {
@@ -216,7 +281,7 @@ nav a:hover {
 }
 
 .info-item h3 {
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 10px;
 }
 
@@ -263,7 +328,6 @@ nav a:hover {
     background: var(--secondary);
 }
 
-
 /* Footer */
 footer {
     background: var(--dark);
@@ -273,57 +337,75 @@ footer {
     font-size: 0.9em;
 }
 
-/* Products Section */
-.products {
-    background: #ffffff;
-    padding: 80px 0;
-    text-align: center;
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 992px) {
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .about {
+        padding: 60px 8%;
+    }
 }
 
-.products h2 {
-    color: var(--dark);
-    font-size: 2em;
-    margin-bottom: 10px;
+@media (max-width: 768px) {
+    /* แสดงปุ่มเมนู */
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 220px;
+        padding: 20px;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav li {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        flex-wrap: wrap;
+    }
+
+    .hero h2 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .service-grid,
+    .product-grid,
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-.products .subtitle {
-    color: #555;
-    font-size: 1.1em;
-    margin-bottom: 40px;
-}
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 1.5em;
+    }
 
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-}
+    .btn {
+        padding: 8px 18px;
+        font-size: 0.9em;
+    }
 
-.product-card {
-    background: #f8f9fa;
-    width: 260px;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-}
-
-.product-card img {
-    width: 80px;
-    margin-bottom: 15px;
-}
-
-.product-card h3 {
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-
-.product-card p {
-    font-size: 0.95em;
-    color: #444;
+    .about p {
+        font-size: 1em;
+    }
 }
